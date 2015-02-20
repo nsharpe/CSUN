@@ -1,0 +1,10 @@
+Assume F=N
+
+F={f_0,f_1,…f_n}
+g(x)=f_x(x)+1
+g=f_k
+g(x)=f_k(x) for all x
+g(k)=f_k(k) + 1
+0=1
+
+Thus F > N
