@@ -1,3 +1,6 @@
+**************************************************************************************************
+Proof by contradiction that a set of function is strictly greater then the set of all real numbers
+
 Assume F=N
 
 F={f_0,f_1,…f_n}
@@ -8,3 +11,18 @@ g(k)=f_k(k) + 1
 0=1
 
 Thus F > N
+
+
+**************************************************************************************************
+Halting Problem
+
+h(i,x)=1 if i(x) halts
+         0 otherwise
+
+g(i) = 0 if f(i,i) = 0
+     = * otherwise
+
+f != h and thus h does not exist
+
+if f(e,e)=0 then g(e) and thus h(e,e)=1
+if f((e,e))!=0 then g(e)=* and thus h(e,e)=0
