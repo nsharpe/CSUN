@@ -13,9 +13,10 @@ female(lindahirsh).
 female(robertademot).
 female(rachaeldemot).
 female(amelialopez).
-married(annesharpe,kensharpe).
-married(olgalopez,louielopez).
-married(ameilalopez,johnlopez).
+wife(annesharpe,kensharpe).
+wife(olgalopez,louielopez).
+wife(ameilalopez,johnlopez).
+wife(robertademot,richdemot).
 parent(kensharpe,neilsharpe).
 parent(kensharpe,justinsharpe).
 parent(annesharpe,neilsharpe).
@@ -33,13 +34,16 @@ parent(olgalopez,johnlopez).
 parent(paulahirsh,jaqiehirsh).
 parent(paulahirsh,lindahirsh).
 
-sibling(X,Y) :- child(X,Z),child(Y,Z),X\=Y.
+husband(X,Y) :- wife(Y,X).
+married(X,Y) :- wife(X,Y)|husband(X,Y).
+sibling(X,Y) :- parent(Z,X),parent(W,X),father(Z,Y),mother(W,Y),X\=Y.
 brother(X,Y) :- male(X),sibling(X,Y).
 sister(X,Y) :- female(X), sibling(X,Y).
 mother(X,Y) :- female(X), parent(X,Y).
 father(X,Y) :- male(X), parent(X,Y).
-aunt(X,Y) :-  parent(Z,Y), sister(X,Z).
-uncle(X,Y) :- parent(Z,Y), brother(X,Z).
+secondparent(X,Y) :-( parent(Z,Y),sibling(X,Z))|(parent(W,Y),sibling(W,Z),married(Z,X)).
+aunt(X,Y) :-  secondparent(X,Y),female(X).
+uncle(X,Y) :- secondparent(X,Y), male(X).
 cousin(X,Y) :- grandparent(Z,X),grandparent(Z,Y).
 child(X,Y) :- parent(Y,X).
 grandchild(X,Y) :- child(X,Z),child(Z,Y).
