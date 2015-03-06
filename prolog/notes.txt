@@ -33,7 +33,10 @@ De Morgan
 -- Lookup
 
 **************************************************************************************************
+see http://en.wikipedia.org/wiki/Typographical_conventions_in_mathematical_formulae
 
+Ǝ(x) = There exists a 'x'
+∀x_1x_2...x_n For every item x_1 to x_n
 
 ∀x E(X,Y)
 ∀xy E(x,y) -> E(y,x)
