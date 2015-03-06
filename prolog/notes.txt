@@ -38,9 +38,9 @@ see http://en.wikipedia.org/wiki/Typographical_conventions_in_mathematical_formu
 Ǝ(x) = There exists a 'x'
 ∀x_1x_2...x_n For every item x_1 to x_n
 
-∀x E(X,Y)
-∀xy E(x,y) -> E(y,x)
-∀xyz(E(x,y) /delta E(y,z))->E(x,z)
+∀x E(X,X)                               ---- x==x
+∀xy E(x,y) -> E(y,x)                    ---- If x==y then y==x
+∀xyz(E(x,y) /delta E(y,z))->E(x,z)      ---- if x + y = z then x + z = y
 
 Assumptions of the Theorem
 1) Associativitiy
