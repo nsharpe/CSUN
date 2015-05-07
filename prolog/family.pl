@@ -34,16 +34,15 @@ parent(olgalopez,johnlopez).
 parent(paulahirsh,jaqiehirsh).
 parent(paulahirsh,lindahirsh).
 
-husband(X,Y) :- wife(Y,X).
+husband(H,W) :- wife(W,H).
 married(X,Y) :- wife(X,Y)|husband(X,Y).
-sibling(X,Y) :- parent(Z,X),parent(W,X),father(Z,Y),mother(W,Y),X\=Y.
-brother(X,Y) :- male(X),sibling(X,Y).
-sister(X,Y) :- female(X), sibling(X,Y).
-mother(X,Y) :- female(X), parent(X,Y).
-father(X,Y) :- male(X), parent(X,Y).
-secondparent(X,Y) :-( parent(Z,Y),sibling(X,Z))|(parent(W,Y),sibling(W,Z),married(Z,X)).
-aunt(X,Y) :-  secondparent(X,Y),female(X).
-uncle(X,Y) :- secondparent(X,Y), male(X).
+brother(B,Y) :- male(B),sibling(B,Y).
+sister(S,Y) :- female(S), sibling(S,Y).
+mother(M,Y) :- female(M), parent(M,Y).
+father(F,Y) :- male(F), parent(F,Y).
+secondparent(P,Y) :-( parent(Z,Y),sibling(P,Z))|(parent(W,Y),sibling(W,Z),married(Z,P)).
+aunt(A,Y) :-  secondparent(A,Y),female(A).
+uncle(M,Y) :- secondparent(M,Y), male(M).
 cousin(X,Y) :- grandparent(Z,X),grandparent(Z,Y).
 child(X,Y) :- parent(Y,X).
 grandchild(X,Y) :- child(X,Z),child(Z,Y).
@@ -52,3 +51,10 @@ grandson(X,Y) :- male(X),grandchild(X,Y).
 grandparent(X,Y) :- grandchild(Y,X).
 grandfather(X,Y) :- male(X),grandparent(X,Y).
 grandmother(X,Y) :- female(X),grandparent(X,Y).
+
+sibling(X,Y) :- fullsibling(X,Y) | halfsibling(X,Y).
+
+fullsibling(X,Y) :- father(F,X), father(F,Y), mother(M,X), mother(M,Y),not(X=Y).
+halfsibling(X,Y) :- parent(P,X), parent(P,Y), not( fullsibling(X,Y) ),not(X=Y).
+
+
