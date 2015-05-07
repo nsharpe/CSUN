@@ -72,4 +72,6 @@ let x * a = b (left solution)
 Expert Systems
 http://en.wikipedia.org/wiki/Expert_system#Advantages
 
+*************************************************************************************************
 
+Look up sentence.pl
