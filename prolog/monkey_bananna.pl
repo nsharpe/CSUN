@@ -1,38 +1,38 @@
-% state(MonkeyHorizontal,MonkeyVertical,BigBoxPosition,SmallBoxHorizontal,HasBanana,SmallBoxVertical)
+% state(MonkeyHorizontal,MonkeyVertical,BigBoxPosition,HasBanana,SmallBoxHorizontal,SmallBoxVertical)
 
 
-move( state(middle,onbox,middle,middle,_,onbox),
+move( state(middle,onbox,middle,_,middle,onbox),
       grasp,
-      state(middle,onbox,middle,middle,has,onbox)).
+      state(middle,onbox,middle,has,middle,onbox)).
 
-move( state(middle,onfloor,middle,middle,H,onbox),
+move( state(middle,onfloor,middle,H,middle,onbox),
       climb,
-      state(middle,onbox,middle,middle,H,onbox ) ).
+      state(middle,onbox,middle,H,middle,onbox ) ).
 
-move( state( P,onfloor,P,P,H,onfloor),
+move( state( P,onfloor,P,H,P,onfloor),
       stack,
-      state( P,onfloor,P,P,H,onbox ) ).
+      state( P,onfloor,P,H,P,onbox ) ).
 
-move( state(P1,onfloor,P,P1,H,onfloor),
+move( state(P1,onfloor,P,H,P1,onfloor),
       pushsmall(P1,middle),
-      state(middle,onfloor,P,middle,H,onfloor)).
+      state(middle,onfloor,P,H,middle,onfloor)).
 
-move( state(P1,onfloor,P1,P,H,onfloor),
+move( state(P1,onfloor,P1,H,P,onfloor),
       pushbig(P1,P2),
-      state(P2,onfloor,P2,P,H,onfloor)).
+      state(P2,onfloor,P2,H,P,onfloor)).
 
-move( state(P1, onfloor, B1,B2,H,onfloor),
+move( state(P1, onfloor, B1,H,B2,onfloor),
       walk(P1,P2),
-      state(P2,onfloor,B1,B2,H,onfloor)).
+      state(P2,onfloor,B1,H,B2,onfloor)).
 
-canget( state(_,_,_,_,has,_) ).
+canget( state(_,_,_,has,_,_) ).
 
 canget( State1 ) :-
 	move(State1,Move,State2),
 	State1\==State2,
         canget(State2).
 
-canget( state(_,_,_,_,has,_), []).
+canget( state(_,_,_,has,_,_), []).
 
 canget( State1, Plan ) :-
        move(State1,Move,State2),
