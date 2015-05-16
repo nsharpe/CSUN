@@ -1,3 +1,4 @@
+%Neil Sharpe
 
 equals(z,z).
 equals(X,X).
@@ -30,6 +31,9 @@ remainder(X,Y,Out) :- divide(X,Y,D), multiplication(D,Y,M), subtract(X,M,Out).
 factorial(z,s(z)).
 factorial(s(z),s(z)).
 factorial(X,Out) :- decrement(X,D),factorial(D,F),multiplication(X,F,Out).
+
+number(z,0).
+number(s(X),Out) :- number(X,N), Out is N + 1.
 
 increment(X,s(X)).
 decrement(s(X),X).
