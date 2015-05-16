@@ -18,4 +18,14 @@ subtract(s(X),s(Y),Out) :- subtract(X,Y,Out).
 
 multiplication(X,s(z),X).
 multiplication(s(z),X,X).
-multiplication(X,Y,Out) :- subtract(Y,s(z),S),multiplication(X,S,M), plus(X,M,Out).
+multiplication(X,Y,Out) :- decrement(Y,S),multiplication(X,S,M), plus(X,M,Out).
+
+divide(X,Y,s(z)) :- equals(X,Y).
+divide(X,Y,z) :- less_then(X,Y).
+divide(X,Y,Out) :- subtract(X,Y,S), divide(S,Y,D), increment(D,Out).
+
+remainder(z,_,z).
+remainder(X,Y,Out) :- divide(X,Y,D), multiplication(D,Y,M), subtract(X,M,Out).
+
+increment(X,s(X)).
+decrement(s(X),X).
