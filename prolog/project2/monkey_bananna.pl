@@ -16,6 +16,7 @@ move( state( P,onfloor,P,H,P,onfloor),
 move( state(P1,onfloor,P,H,P1,onfloor),
       pushsmall(P1,middle),
       state(middle,onfloor,P,H,middle,onfloor)).
+% Neil Sharpe
 
 move( state(P1,onfloor,P1,H,P,onfloor),
       pushbig(P1,P2),

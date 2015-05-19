@@ -1,0 +1,4 @@
+Neil Sharpe
+
+19 ?- canget(state(door,onfloor,window,hasnot,table,onfloor),P).
+P = [walk(door, table), pushsmall(table, middle), walk(middle, window), pushbig(window, middle), stack, climb, grasp] .
