@@ -1,0 +1,32 @@
+Neil Sharpe Tests for Lists
+Test for last function
+21 ?- last(O,[a,b,c,d,e,f,g,h,i]).
+O = i .
+
+Test for reverse
+22 ?- reverse(Out,[a,b,c,d,e,f,g,h,i]).
+Out = [i, h, g, f, e, d, c, b, a] .
+
+test for index
+24 ?- index([a,b,c,d,e,f,g,h,i],1,Out).
+Out = b .
+
+25 ?- index([a,b,c,d,e,f,g,h,i],5,Out).
+Out = f .
+
+26 ?- index([a,b,c,d,e,f,g,h,i],0,Out).
+Out = a .
+
+Size test
+27 ?- size([a,b,c,d],Out).
+Out = 4 .
+
+28 ?- size([a,b,c,d,e],Out).
+Out = 5 .
+
+Compress Test
+29 ?- compress([a,b,c],Out).
+Out = [a, b, c] .
+
+30 ?- compress([a,a,b,b,c,c],Out).
+Out = [a, b, c] .

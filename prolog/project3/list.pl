@@ -14,6 +14,7 @@ size([_|Y],Out) :- size(Y,Index),increment(Index,Out) .
 size([],0).
 size(_,1).
 
+compress([X|Y],Out) :- compress(Y,X,G),add(X,G,Out).
 compress([Duplicate|Y],Duplicate,Out) :- compress(Y,Duplicate,Out).
 compress([X|Y],_,Out) :- compress(Y,X,G), add(X,G,Out).
 compress(Y,Y,[]).
