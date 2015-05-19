@@ -1,0 +1,7 @@
+Neil Sharpe
+Could not come up with correct solution
+
+Best result is the following
+
+33 ?- start(state(e,e,e,e,w,e,w),P).
+P = [dadmovesdaughter(e, w), daughtergoesalone(w, e), sonmovesdaughter(e, w), songoesalone(w, e), sonmoveshamsters(e, w)|_G1839] .

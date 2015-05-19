@@ -1,4 +1,4 @@
-# Neil Sharpe
+% Neil Sharpe
 
 last([]).
 last(Out,[_|Y]) :- last(Out,Y).
