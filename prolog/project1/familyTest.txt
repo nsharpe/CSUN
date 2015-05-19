@@ -1,0 +1,34 @@
+%example output
+1 ?- parent(X,neilsharpe).
+X = kensharpe .
+
+2 ?- parent(X,neilsharpe).
+X = kensharpe 
+X = annesharpe.
+
+3 ?- grandparent(X,neilsharpe).
+X = louielopez 
+X = olgalopez.
+
+4 ?- grandchild(X,olgalopez).
+X = neilsharpe 
+X = justinsharpe 
+X = jaqiehirsh 
+X = lindahirsh.
+
+5 ?- uncle(X,neilsharpe).
+X = larrylopez 
+X = johnlopez 
+X = richdemot 
+false.
+
+6 ?- aunt(X,neilsharpe).
+X = robertademot 
+X = paulahirsh 
+false.
+
+?- cousin(X,neilsharpe).
+X = jaqiehirsh 
+X = lindahirsh 
+X = jaqiehirsh 
+X = lindahirsh 

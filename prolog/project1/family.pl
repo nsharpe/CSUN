@@ -43,7 +43,7 @@ father(F,Y) :- male(F), parent(F,Y).
 secondparent(P,Y) :-( parent(Z,Y),sibling(P,Z))|(parent(W,Y),sibling(W,Z),married(Z,P)).
 aunt(A,Y) :-  secondparent(A,Y),female(A).
 uncle(M,Y) :- secondparent(M,Y), male(M).
-cousin(X,Y) :- grandparent(Z,X),grandparent(Z,Y).
+cousin(X,Y) :- (aunt(A,X),parent(A,Y))|(uncle(U,X),parent(U,Y)).
 child(X,Y) :- parent(Y,X).
 grandchild(X,Y) :- child(X,Z),child(Z,Y).
 granddaughter(X,Y) :- female(X),grandchild(X,Y).
