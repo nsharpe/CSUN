@@ -1,0 +1,74 @@
+Neil Sharpe
+
+Equals tests
+34 ?- equals(s(z),s(s(z))).
+false.
+
+35 ?- equals(s(z),s(z)).
+true .
+
+36 ?- equals(s(s(z)),s(z)).
+false.
+
+Plus Tests
+37 ?- plus(s(z),s(z),Out).
+Out = s(s(z)) .
+
+38 ?- plus(s(z),s(s(z)),Out).
+Out = s(s(s(z))) .
+
+39 ?- plus(s(s(z)),s(z),Out).
+Out = s(s(s(z))) .
+
+Less then tests
+40 ?- less_then(s(z),s(z)).
+false.
+
+41 ?- less_then(s(z),s(s(z))).
+true.
+
+42 ?- less_then(z,s(s(z))).
+true.
+
+43 ?- less_then(s(s(z)),s(z)).
+false.
+
+greater then tests
+44 ?- greater_then(s(z),z).
+true .
+
+45 ?- greater_then(s(z),s(z)).
+false.
+
+46 ?- greater_then(s(z),s(s(z))).
+false.
+
+subtraction tests
+subtract(s(s(s(z))),s(z),Out).
+Out = s(s(z)) .
+
+Multiplication Tests
+50 ?- multiplication(s(s(z)),s(s(s(z))),Out).
+Out = s(s(s(s(s(s(z)))))) .
+
+Divide Tests
+divide(s(s(s(s(s(s(z)))))),s(s(z)),Out).
+Out = s(s(s(z))) .
+
+Mod Tests
+53 ?- remainder(s(s(s(s(s(z))))),s(s(s(z))),Out).
+Out = s(s(z)) .
+
+Factorial Tests
+54 ?- factorial(s(s(s(s(z)))),Out).
+Out = s(s(s(s(s(s(s(s(s(s(...)))))))))) .
+
+55 ?- factorial(s(s(s(z))),Out).
+Out = s(s(s(s(s(s(z)))))) 
+
+Number Tests
+56 ?- number(s(s(s(z))),Out).
+Out = 3.
+
+57 ?- number(s(s(s(s(s(z))))),Out).
+Out = 5.
