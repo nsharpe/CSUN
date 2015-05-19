@@ -55,7 +55,9 @@ word_char(95).
 load_rules :-
   write('file name? '),
   read(F),
-  load_rules(F).
+  write(F),
+  open(F,read,Str),
+  load_rules(Str).
 
 load_rules(F) :-
  % clear_db,
